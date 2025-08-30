@@ -1,0 +1,68 @@
+SPACE GAME Change Log
+
+0.1
+Change Log: Adding Sound and Custom Cursor to Pygame Program
+
+Added Sound Functionality:
+
+Sound files (collision_sound.wav and game_over_sound.wav) were added to the project directory.
+Pygame's sound module (pygame.mixer) was initialized.
+Sounds were loaded using pygame.mixer.Sound().
+Sounds were played at appropriate events in the game loop, such as collisions and game over.
+
+Error Handling for Sound Loading:
+
+Checked for file existence and correct file paths to prevent FileNotFoundError.
+Provided troubleshooting steps to resolve issues with loading sound files.
+Implemented Custom Cursor:
+
+Prepared a custom cursor image (custom_cursor.png) to replace the standard cursor.
+Loaded the custom cursor image using pygame.image.load().
+Used pygame.mouse.set_cursor() to set the custom cursor.
+Addressed errors related to incorrect cursor data format by ensuring the cursor image data was properly extracted and formatted.
+Troubleshooting and Debugging:
+
+Identified and resolved errors encountered during the implementation of sound and custom cursor functionality.
+Provided guidance on checking file paths, file existence, and debugging techniques.
+Integration with Existing Pygame Program:
+
+Integrated sound and custom cursor functionality into an existing Pygame program.
+Adjusted code structure and placement to incorporate sound and cursor-related operations within the game loop.
+Completion and Testing:
+
+Tested the updated program to ensure proper functionality of sound and custom cursor.
+Provided guidance on testing and debugging to address any remaining issues.
+
+
+0.2
+Issue with Collision Detection: There was an issue with collision detection between the falling objects and the cursor position. Initially, pygame.sprite.collide_mask was used, but it was not suitable for this purpose.
+
+Incorrect Collision Detection Code: The code for collision detection between falling objects and the cursor position was incorrect. It used obj.image.get_rect().collidepoint(mouse_pos), which resulted in an AttributeError because obj.image is a surface object and doesn't have a rect attribute.
+
+Corrected Collision Detection Code: The collision detection code was corrected to use obj.rect.collidepoint(mouse_pos) instead of obj.image.get_rect().collidepoint(mouse_pos).
+
+Separate Classes for Black and Red Boxes: Initially, there was a question about whether separate classes are needed for black and red boxes. The conclusion was to use a single class with different image paths for each type of box.
+
+Missing Display of WhiteStars2 Image: There was an issue where only the RedPlanet image was being displayed, and the WhiteStars2 image was not showing up. This was resolved by correcting the path to the WhiteStars2 image.
+
+Code Stops When Cursor Touches an Obstacle: There was a problem where the program stopped as soon as the cursor touched an obstacle. This was due to the incorrect handling of collision detection.
+
+Refactoring for Correct Collision Detection: The collision detection code was refactored to correctly handle collisions between falling objects and the cursor position.
+
+AttributeError in Collision Detection Code: There was an AttributeError in the collision detection code due to using obj.image.get_rect().collidepoint(mouse_pos). This was corrected to use obj.rect.collidepoint(mouse_pos).
+
+Error Message: The error message received was "AttributeError: 'pygame.surface.Surface' object has no attribute 'rect'".
+
+Final Correction: The final correction involved replacing the incorrect collision detection line with the corrected one to resolve the AttributeError.
+
+0.3
+Added Collision Sound Effects: Added collision sound effects for when the cursor hits black and red box objects.
+Implemented Score and Life Counter: Implemented score and life counter display on the game screen.
+Added Purple Falling Objects: Added purple falling objects that increase the player's life count when clicked.
+Added Explosion and Spark Animations: Added explosion and spark animations when the cursor hits red and black box objects, respectively.
+Implemented Game Over Screen: Added a game over screen that displays the final score and provides options to play again or quit.
+Adjusted Game Over Screen Position: Adjusted the position of the game over screen to center it vertically on the screen.
+Added Play Again and Quit Buttons: Added interactive buttons for "Play Again" and "Quit" options on the game over screen.
+Adjusted Text Position: Adjusted the position of the text displayed on the game over screen to move it down the screen.
+Implemented Logic to Prevent Black Box Spawn Near Red Box: Implemented logic to ensure that black box objects do not spawn too close to red box objects, ensuring a minimum distance of 20 pixels.
+Added Change Log Request: User requested a change log summarizing the updates made during the conversation.
